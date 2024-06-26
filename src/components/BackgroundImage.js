@@ -1,7 +1,6 @@
-import image from "../IMG_1796.jpg"
+import { Image } from "antd";
 function BackgroundImage() {
-    return <img src={image} alt="background-image-here" className="background"/>
-};
-  
-  export default BackgroundImage;
-  
+  return <Image width={200} src="background-trees.jpg" />;
+}
+
+export default BackgroundImage;
