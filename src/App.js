@@ -1,23 +1,20 @@
 import "./App.css";
-import LogoImage from "./components/LogoImage";
-import LearnReact from "./components/LearnReact";
-import LearnText from "./components/LearnText";
+import Header from "./components/Header";
 import BackgroundImage from "./components/BackgroundImage";
+import StumpPhotoAndText from "./components/StumpPhotoAndText";
+import GardenPhotoAndText from "./components/GardenPhotoAndText";
 
-import { useState } from "react";
+
 
 function App() {
-  const [myNumber, setMyNumber] = useState(0);
 
   return (
     <div className="App">
       <header className="App-header">
-        <LogoImage />
-        <BackgroundImage />
-        <LearnText />
-        <LearnReact />
-        <button onClick={() => setMyNumber(myNumber + 1)}>Increment</button>
-        <p>{myNumber}</p>
+        <Header/>
+        <BackgroundImage/>
+        <StumpPhotoAndText/>
+        <GardenPhotoAndText/>
       </header>
     </div>
   );

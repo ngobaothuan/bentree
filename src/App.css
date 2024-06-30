@@ -12,12 +12,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-  }
+ 
 }
 
 .App-header {
-  background-color: rgba(2, 138, 15, 0.5);
+  background-color:#E7F0DC;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
