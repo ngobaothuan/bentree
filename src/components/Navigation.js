@@ -5,8 +5,8 @@ import {
   ContactsOutlined,
   NodeIndexOutlined,
   HomeOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
+  MenuOutlined,
+  LeftCircleOutlined,
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
@@ -51,16 +51,16 @@ function Navigation() {
   };
 
   return (
-    <div style={{ width: width < 768 ? "50rem" : "100%" }}>
+    <div style={{ width: "100%" }}>
       {width < 768 && (
         <Button
-          type="primary"
+          type="text"
           onClick={toggleCollapsed}
           style={{
             marginBottom: 16,
           }}
         >
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          {collapsed ? <MenuOutlined /> : <LeftCircleOutlined />}
         </Button>
       )}
       <Menu

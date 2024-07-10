@@ -3,7 +3,7 @@ import Navigation from "./components/Navigation";
 import BackgroundImage from "./components/BackgroundImage";
 import PhotoAndText from "./components/PhotoAndText";
 import homePageItems from "./data/homePageItems.json";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, Row, Col } from "antd";
 
 function App() {
   return (
@@ -15,19 +15,23 @@ function App() {
       }}
     >
       <div className="App">
-        <Navigation />
-        <header className="App-header">
+        <Row>
+          <Col>
+            <Navigation />
+          </Col>
           {/* <BackgroundImage /> */}
           {homePageItems.map((item, index) => (
-            <PhotoAndText
-              key={`${item.title}-${index}`}
-              imgSrc={item.imgSrc}
-              headingText={item.title}
-              descriptionText={item.description}
-              imgPlacement={index % 2 === 0 ? "left" : "right"}
-            />
+            <Col>
+              <PhotoAndText
+                key={`${item.title}-${index}`}
+                imgSrc={item.imgSrc}
+                headingText={item.title}
+                descriptionText={item.description}
+                imgPlacement={index % 2 === 0 ? "left" : "right"}
+              />
+            </Col>
           ))}
-        </header>
+        </Row>
       </div>
     </ConfigProvider>
   );
