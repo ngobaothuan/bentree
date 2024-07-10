@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 import BackgroundImage from "./components/BackgroundImage";
 import PhotoAndText from "./components/PhotoAndText";
 import homePageItems from "./data/homePageItems.json";
@@ -15,9 +15,9 @@ function App() {
       }}
     >
       <div className="App">
+        <Navigation />
         <header className="App-header">
-          <Header />
-          <BackgroundImage />
+          {/* <BackgroundImage /> */}
           {homePageItems.map((item, index) => (
             <PhotoAndText
               key={`${item.title}-${index}`}
