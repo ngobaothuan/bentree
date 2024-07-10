@@ -21,23 +21,17 @@ function Header() {
             style={{ maxWidth: "10rem", width: "3.5rem", height: "3rem" }}
           />
         </Col>
-        <Col offset={14} sm={6}>
-          <Row span={24} align="middle">
-            <Col span={8}>
-              <Button onClick={() => {}} ghost>
-                Tìm Hiểu Thêm
-              </Button>
-            </Col>
-            <Col span={8}>
-              <Button onClick={() => {}} ghost>
-                Liên Hệ
-              </Button>
-            </Col>
-            <Col span={8}>
-              <Button onClick={() => {}} ghost>
-                Địa chỉ
-              </Button>
-            </Col>
+        <Col sm={20}>
+          <Row justify="end">
+            <Button style={{ marginRight: "1rem" }} onClick={() => {}} ghost>
+              Tìm Hiểu Thêm
+            </Button>
+            <Button style={{ marginRight: "1rem" }} onClick={() => {}} ghost>
+              Liên Hệ
+            </Button>
+            <Button style={{ marginRight: "1rem" }} onClick={() => {}} ghost>
+              Địa chỉ
+            </Button>
           </Row>
         </Col>
       </Row>
