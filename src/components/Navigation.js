@@ -1,4 +1,4 @@
-import { Menu, Button } from "antd";
+import { Menu, Button, Layout, theme } from "antd";
 import { useState } from "react";
 import {
   InfoCircleOutlined,
@@ -10,10 +10,15 @@ import {
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
+const { Header, Content, Footer, Sider } = Layout;
+
 function Navigation() {
   const { width } = useWindowDimensions();
   const [collapsed, setCollapsed] = useState(true);
   const [currentPage, setCurrentPage] = useState("trangchủ");
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
   const items = [
     {
@@ -42,17 +47,14 @@ function Navigation() {
     },
   ];
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
   const onNavClick = (e) => {
     console.log("click ", e);
     setCurrentPage(e.key);
   };
 
   return (
-    <div style={{ width: "100%" }}>
-      {width < 768 && (
+    <>
+      {/* {width < 768 && (
         <Button
           type="text"
           onClick={toggleCollapsed}
@@ -62,15 +64,22 @@ function Navigation() {
         >
           {collapsed ? <MenuOutlined /> : <LeftCircleOutlined />}
         </Button>
-      )}
-      <Menu
-        onClick={onNavClick}
-        selectedKeys={[currentPage]}
-        mode={width < 768 ? "inline" : "horizontal"}
-        inlineCollapsed={collapsed}
-        items={items}
-      />
-    </div>
+      )} */}
+      <Sider
+        collapsible={width < 768 ? true : false}
+        collapsed={width < 768 ? collapsed : false}
+        onCollapse={(value) => setCollapsed(value)}
+        width="100%"
+      >
+        <Menu
+          onClick={onNavClick}
+          selectedKeys={[currentPage]}
+          mode={width < 768 ? "inline" : "horizontal"}
+          items={items}
+          width="100%"
+        />
+      </Sider>
+    </>
   );
 }
 
