@@ -3,8 +3,9 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const { Paragraph } = Typography;
 
-const HomePageItem = ({
+const PhotoAndText = ({
   imgSrc,
+  imgAlt,
   headingText,
   descriptionText,
   imgPlacement,
@@ -26,7 +27,7 @@ const HomePageItem = ({
           <Col sm={24} md={12}>
             <img
               src={imgSrc}
-              alt="garden"
+              alt={imgAlt}
               style={{ maxWidth: "100%", width: "28rem" }}
             />
           </Col>
@@ -72,4 +73,4 @@ const HomePageItem = ({
   );
 };
 
-export default HomePageItem;
+export default PhotoAndText;
