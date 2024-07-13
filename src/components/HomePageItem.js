@@ -3,7 +3,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const { Paragraph } = Typography;
 
-const PhotoAndText = ({
+const HomePageItem = ({
   imgSrc,
   headingText,
   descriptionText,
@@ -72,4 +72,4 @@ const PhotoAndText = ({
   );
 };
 
-export default PhotoAndText;
+export default HomePageItem;

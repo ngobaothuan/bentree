@@ -1,24 +1,19 @@
-import { Menu, Button, Layout, theme } from "antd";
+import { Menu, Layout } from "antd";
 import { useState } from "react";
 import {
   InfoCircleOutlined,
   ContactsOutlined,
   NodeIndexOutlined,
   HomeOutlined,
-  MenuOutlined,
-  LeftCircleOutlined,
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 
 function Navigation() {
   const { width } = useWindowDimensions();
   const [collapsed, setCollapsed] = useState(true);
   const [currentPage, setCurrentPage] = useState("trangchủ");
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
 
   const items = [
     {
@@ -53,33 +48,38 @@ function Navigation() {
   };
 
   return (
-    <>
-      {/* {width < 768 && (
-        <Button
-          type="text"
-          onClick={toggleCollapsed}
-          style={{
-            marginBottom: 16,
-          }}
-        >
-          {collapsed ? <MenuOutlined /> : <LeftCircleOutlined />}
-        </Button>
-      )} */}
-      <Sider
-        collapsible={width < 768 ? true : false}
-        collapsed={width < 768 ? collapsed : false}
-        onCollapse={(value) => setCollapsed(value)}
-        width="100%"
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+      breakpoint="sm"
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
       >
-        <Menu
-          onClick={onNavClick}
-          selectedKeys={[currentPage]}
-          mode={width < 768 ? "inline" : "horizontal"}
-          items={items}
-          width="100%"
+        <img
+          src={
+            collapsed
+              ? "BentreeLogoWhite.svg"
+              : "BentreeLogoHorizontalWhite.svg"
+          }
+          alt="Bentree logo"
+          style={{ height: "2.8rem", width: "auto", margin: "1rem" }}
         />
-      </Sider>
-    </>
+      </div>
+      <Menu
+        theme="dark"
+        onClick={onNavClick}
+        defaultSelectedKeys={["1"]}
+        selectedKeys={[currentPage]}
+        mode="inline"
+        items={items}
+      />
+    </Sider>
   );
 }
 
