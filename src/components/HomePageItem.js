@@ -5,6 +5,7 @@ const { Paragraph } = Typography;
 
 const PhotoAndText = ({
   imgSrc,
+  imgAlt,
   headingText,
   descriptionText,
   imgPlacement,
@@ -12,13 +13,21 @@ const PhotoAndText = ({
   const { width } = useWindowDimensions();
 
   return (
-    <div style={{ padding: "1rem " }}>
+    <div
+      style={{
+        padding: "1rem ",
+        background: "white",
+        borderRadius: "8px",
+        margin: "1rem",
+        maxWidth: "60rem",
+      }}
+    >
       <Row gutter={16}>
         {(imgPlacement === "left" || width < 768) && (
           <Col sm={24} md={12}>
             <img
               src={imgSrc}
-              alt="garden"
+              alt={imgAlt}
               style={{ maxWidth: "100%", width: "28rem" }}
             />
           </Col>

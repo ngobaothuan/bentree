@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -12,11 +12,9 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
- 
 }
 
 .App-header {
-  background-color:#E7F0DC;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,15 +28,15 @@
   color: #61dafb;
 }
 .background {
-    background-size: cover; /* Cover the entire element */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    position: absolute; /* Optional: positioning */
-    top: 0; /* Optional: positioning */
-    left: 0; /* Optional: positioning */
-    z-index: -1;
+  background-size: cover; /* Cover the entire element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  position: absolute; /* Optional: positioning */
+  top: 0; /* Optional: positioning */
+  left: 0; /* Optional: positioning */
+  z-index: -1;
 }
 @keyframes App-logo-spin {
   from {
