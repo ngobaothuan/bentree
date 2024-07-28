@@ -6,6 +6,7 @@ import { ConfigProvider, Layout } from "antd";
 import { green } from "@ant-design/colors";
 import Navigation from "./components/Navigation";
 import PageHeader from "./components/PageHeader";
+import CallNowButton from "./components/CallNowButton";
 import { App as AntdApp } from "antd";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Navigation />
           <Layout>
             <PageHeader />
+            <CallNowButton />
             <Content
               style={{
                 margin: "0 1rem",
