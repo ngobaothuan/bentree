@@ -8,6 +8,9 @@ import Navigation from "./components/Navigation";
 import PageHeader from "./components/PageHeader";
 import CallNowButton from "./components/CallNowButton";
 import { App as AntdApp } from "antd";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Library from "./components/Library";
 
 function App() {
   const { Content, Footer } = Layout;
@@ -27,6 +30,7 @@ function App() {
           }}
         >
           <Navigation />
+
           <Layout>
             <PageHeader />
             <CallNowButton />
@@ -51,6 +55,7 @@ function App() {
                 />
               ))}
             </Content>
+            <Library />
             <Footer
               style={{
                 textAlign: "center",

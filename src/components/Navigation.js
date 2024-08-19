@@ -7,6 +7,7 @@ import {
   HomeOutlined,
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useNavigate } from "react-router-dom";
 
 const { Sider } = Layout;
 
@@ -15,6 +16,10 @@ function Navigation() {
   const [collapsed, setCollapsed] = useState(true);
   const [currentPage, setCurrentPage] = useState("trangchủ");
 
+  const useNavClick = (e) => {
+    console.log("click ", e);
+    useNavigate(`/${e.key}`);
+  };
   const items = [
     {
       label: "Trang Chủ",
@@ -40,12 +45,13 @@ function Navigation() {
       title: width < 768 && collapsed ? "Địa chỉ" : null,
       icon: <NodeIndexOutlined />,
     },
+    {
+      label: "Library",
+      key: "library",
+      title: width < 768 && collapsed ? "Library" : null,
+      icon: <NodeIndexOutlined />,
+    },
   ];
-
-  const onNavClick = (e) => {
-    console.log("click ", e);
-    setCurrentPage(e.key);
-  };
 
   return (
     <Sider
@@ -73,7 +79,7 @@ function Navigation() {
       </div>
       <Menu
         theme="dark"
-        onClick={onNavClick}
+        // onClick={useNavClick}
         defaultSelectedKeys={["1"]}
         selectedKeys={[currentPage]}
         mode="inline"
