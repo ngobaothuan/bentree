@@ -5,6 +5,7 @@ import {
   ContactsOutlined,
   NodeIndexOutlined,
   HomeOutlined,
+  BookOutlined,
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { useNavigate } from "react-router-dom";
@@ -14,34 +15,36 @@ const { Sider } = Layout;
 function Navigation() {
   const { width } = useWindowDimensions();
   const [collapsed, setCollapsed] = useState(true);
-  const [currentPage, setCurrentPage] = useState("trangchủ");
+  const [currentPage] = useState("trangchủ");
+  const navigate = useNavigate();
 
-  const useNavClick = (e) => {
+  const onNavClick = (e) => {
     console.log("click ", e);
-    useNavigate(`/${e.key}`);
+    navigate(`/${e.key === "trangchu" ? "" : e.key}`); // Use navigate here
   };
+
   const items = [
     {
       label: "Trang Chủ",
-      key: "trangchủ",
+      key: "trangchu",
       title: width < 768 && collapsed ? "Trang Chủ" : null,
       icon: <HomeOutlined />,
     },
     {
       label: "Tìm Hiểu Thêm",
-      key: "tìmhiểuthêm",
+      key: "timhieuthem",
       title: width < 768 && collapsed ? "Tìm Hiểu Thêm" : null,
       icon: <InfoCircleOutlined />,
     },
     {
       label: "Liên Hệ",
-      key: "hiênhệ",
+      key: "lienhe",
       title: width < 768 && collapsed ? "Liên Hệ" : null,
       icon: <ContactsOutlined />,
     },
     {
       label: "Địa chỉ",
-      key: "dịachỉ",
+      key: "diachi",
       title: width < 768 && collapsed ? "Địa chỉ" : null,
       icon: <NodeIndexOutlined />,
     },
@@ -49,7 +52,7 @@ function Navigation() {
       label: "Library",
       key: "library",
       title: width < 768 && collapsed ? "Library" : null,
-      icon: <NodeIndexOutlined />,
+      icon: <BookOutlined />,
     },
   ];
 
@@ -79,7 +82,7 @@ function Navigation() {
       </div>
       <Menu
         theme="dark"
-        // onClick={useNavClick}
+        onClick={onNavClick}
         defaultSelectedKeys={["1"]}
         selectedKeys={[currentPage]}
         mode="inline"
