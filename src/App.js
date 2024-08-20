@@ -10,6 +10,7 @@ import TrangChu from "./pages/TrangChu";
 import TimHieuThem from "./pages/TimHieuThem";
 import LienHe from "./pages/LienHe";
 import DiaChi from "./pages/DiaChi";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const { Content, Footer } = Layout;
@@ -47,6 +48,7 @@ function App() {
                   <Route path="/lienhe" element={<LienHe />} />
                   <Route path="/diachi" element={<DiaChi />} />
                   <Route path="/library" element={<Library />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </Content>
               <Footer

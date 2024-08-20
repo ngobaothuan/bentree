@@ -8,19 +8,21 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const { Sider } = Layout;
 
 function Navigation() {
   const { width } = useWindowDimensions();
   const [collapsed, setCollapsed] = useState(true);
-  const [currentPage] = useState("trangchủ");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { pathname } = location;
 
   const onNavClick = (e) => {
     console.log("click ", e);
-    navigate(`/${e.key === "trangchu" ? "" : e.key}`); // Use navigate here
+    navigate(`/${e.key === "trangchu" ? "" : e.key}`);
   };
 
   const items = [
@@ -84,7 +86,7 @@ function Navigation() {
         theme="dark"
         onClick={onNavClick}
         defaultSelectedKeys={["1"]}
-        selectedKeys={[currentPage]}
+        selectedKeys={[pathname.slice(1) || "trangchu"]}
         mode="inline"
         items={items}
       />
