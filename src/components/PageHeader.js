@@ -1,7 +1,7 @@
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { Typography, Layout } from "antd";
 
-function PageHeader() {
+export function PageHeader() {
   const { Header } = Layout;
   const { width } = useWindowDimensions();
   return (
@@ -19,7 +19,7 @@ function PageHeader() {
     >
       <div
         style={{
-          height: width < 540 ? "8rem" : "15rem",
+          height: width < 540 ? "4rem" : "8rem",
         }}
       >
         <img

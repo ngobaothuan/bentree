@@ -72,5 +72,4 @@ const PhotoAndText = ({
     </div>
   );
 };
-
 export default PhotoAndText;
