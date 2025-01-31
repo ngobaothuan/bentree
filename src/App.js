@@ -1,14 +1,15 @@
 import "./App.css";
-// import BackgroundImage from "./components/BackgroundImage";
 import { ConfigProvider, Layout } from "antd";
 import { green } from "@ant-design/colors";
 import { App as AntdApp } from "antd";
 import { CarouselHome } from "./components/CarouselHome";
 import { PageHeader } from "./components/PageHeader";
-import { CallNowButton } from "./components/CallNowButton";
-import homePageItems from "./data/homePageItems.json";
 import { Library } from "./components/Library";
-import HomePageItem from "./components/HomePageItem";
+import { Route, Routes } from "react-router-dom";
+import PhongTrungBay from "./pages/PhongTrungBay";
+import TrangChu from "./pages/TrangChu";
+import LienHe from "./pages/LienHe";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const { Content, Footer } = Layout;
@@ -18,44 +19,27 @@ function App() {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: green.primary,
-          },
+            colorPrimary: green.primary
+          }
         }}
       >
         <Layout
           style={{
-            minHeight: "100vh",
+            minHeight: "100vh"
           }}
         >
           <Layout>
             <PageHeader />
-            <CarouselHome />
-            <CallNowButton />
-            <Content
-              style={{
-                margin: "0 1rem",
-                justifyContent: "center",
-                justifyItems: "center",
-                width: "100%",
-                display: "grid",
-                gridTemplateColumns: "1fr",
-              }}
-            >
-              {homePageItems.map((item, index) => (
-                <HomePageItem
-                  key={`${item.title}-${index}`}
-                  imgSrc={item.imgSrc}
-                  imgAlt={item.imgAlt}
-                  headingText={item.title}
-                  descriptionText={item.description}
-                  imgPlacement={index % 2 === 0 ? "left" : "right"}
-                />
-              ))}
-            </Content>
+            <Routes>
+              <Route index element={<TrangChu />} />
+              <Route path="/phong-trung-bay" element={<PhongTrungBay />} />
+              <Route path="/lien-he" element={<LienHe />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
             <Library />
             <Footer
               style={{
-                textAlign: "center",
+                textAlign: "center"
               }}
             >
               Bentree ©{new Date().getFullYear()}

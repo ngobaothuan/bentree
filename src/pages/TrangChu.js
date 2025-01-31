@@ -2,15 +2,13 @@ import "../App.css";
 import HomePageItem from "../components/HomePageItem";
 import homePageItems from "../data/homePageItems.json";
 import { Layout } from "antd";
-import PageHeader from "../components/PageHeader";
-import CallNowButton from "../components/CallNowButton";
+import { CallNowButton } from "../components/CallNowButton";
 
 function TrangChu() {
   const { Content } = Layout;
 
   return (
     <>
-      <PageHeader />
       <CallNowButton />
       <Content
         style={{
@@ -19,7 +17,7 @@ function TrangChu() {
           justifyItems: "center",
           width: "100%",
           display: "grid",
-          gridTemplateColumns: "1fr",
+          gridTemplateColumns: "1fr"
         }}
       >
         {homePageItems.map((item, index) => (

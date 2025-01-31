@@ -1,5 +1,6 @@
 import { Image } from "antd";
-function Library() {
+import Title from "antd/es/skeleton/Title";
+function PhongTrungBay() {
   const Images = [
     "IMG_1777.jpg",
     "IMG_1795.jpg",
@@ -20,10 +21,11 @@ function Library() {
   };
   return (
     <div style={contentStyle}>
+      <Title level={2}>Phòng Trưng Bày</Title>
       {Images.map((img) => (
         <Image width={200} src={img} />
       ))}
     </div>
   );
 }
-export default Library;
+export default PhongTrungBay;
