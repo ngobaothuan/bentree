@@ -2,7 +2,6 @@ import "./App.css";
 import { ConfigProvider, Layout } from "antd";
 import { green } from "@ant-design/colors";
 import { App as AntdApp } from "antd";
-import { CarouselHome } from "./components/CarouselHome";
 import { PageHeader } from "./components/PageHeader";
 import { Library } from "./components/Library";
 import { Route, Routes } from "react-router-dom";
@@ -12,7 +11,7 @@ import LienHe from "./pages/LienHe";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const { Content, Footer } = Layout;
+  const { Footer } = Layout;
 
   return (
     <AntdApp>

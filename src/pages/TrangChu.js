@@ -1,7 +1,7 @@
 import "../App.css";
-import HomePageItem from "../components/HomePageItem";
+import PhotoAndText from "../components/PhotoAndText";
 import homePageItems from "../data/homePageItems.json";
-import { Layout } from "antd";
+import { Layout, Col, Row } from "antd";
 import { CallNowButton } from "../components/CallNowButton";
 
 function TrangChu() {
@@ -12,24 +12,31 @@ function TrangChu() {
       <CallNowButton />
       <Content
         style={{
-          margin: "0 1rem",
-          justifyContent: "center",
           justifyItems: "center",
-          width: "100%",
-          display: "grid",
-          gridTemplateColumns: "1fr"
+          alignContent: "center"
         }}
       >
-        {homePageItems.map((item, index) => (
-          <HomePageItem
-            key={`${item.title}-${index}`}
-            imgSrc={item.imgSrc}
-            imgAlt={item.imgAlt}
-            headingText={item.title}
-            descriptionText={item.description}
-            imgPlacement={index % 2 === 0 ? "left" : "right"}
-          />
-        ))}
+        <Row style={{
+          justifyContent: "center",
+          margin: "1rem"
+        }}>
+          {homePageItems.map((item, index) => {
+            const key = `${item.title}-${index}`;
+            return (
+              <Col key={key} sm={24} md={12}
+                   style={{
+                     justifyItems: "center"
+                   }}>
+                <PhotoAndText
+                  imgSrc={item.imgSrc}
+                  imgAlt={item.imgAlt}
+                  headingText={item.title}
+                  descriptionText={item.description}
+                />
+              </Col>
+            );
+          })}
+        </Row>
       </Content>
     </>
   );
