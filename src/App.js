@@ -3,7 +3,6 @@ import { ConfigProvider, Layout } from "antd";
 import { green } from "@ant-design/colors";
 import { App as AntdApp } from "antd";
 import { PageHeader } from "./components/PageHeader";
-import { Library } from "./components/Library";
 import { Route, Routes } from "react-router-dom";
 import PhongTrungBay from "./pages/PhongTrungBay";
 import TrangChu from "./pages/TrangChu";
@@ -35,7 +34,6 @@ function App() {
               <Route path="/lien-he" element={<LienHe />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <Library />
             <Footer
               style={{
                 textAlign: "center"

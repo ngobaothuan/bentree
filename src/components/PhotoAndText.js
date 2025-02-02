@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Image } from "antd";
 
 const { Meta } = Card;
 
@@ -6,12 +6,16 @@ const PhotoAndText = ({
                         imgSrc,
                         imgAlt,
                         headingText,
-                        descriptionText
+                        descriptionText,
+                        hoverable = false,
+                        onClick = null
                       }) => {
   return (
     <Card
-      cover={<img alt={imgAlt} src={imgSrc} />}
-      style={{ margin: "1rem", maxWidth: "30rem" }}
+      onClick={onClick}
+      hoverable={hoverable}
+      cover={<Image alt={imgAlt} src={imgSrc} preview={false} />}
+      style={{ margin: "1rem", maxWidth: "48rem" }}
     >
       <Meta title={headingText} description={descriptionText} />
     </Card>

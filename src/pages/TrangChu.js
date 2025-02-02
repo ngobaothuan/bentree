@@ -3,31 +3,37 @@ import PhotoAndText from "../components/PhotoAndText";
 import homePageItems from "../data/homePageItems.json";
 import { Layout, Col, Row } from "antd";
 import { ContactButtons } from "../components/ContactButtons";
+import { useNavigate } from "react-router-dom";
 
 function TrangChu() {
   const { Content } = Layout;
+  const navigate = useNavigate();
+  const onGalleryClick = () => {
+    navigate("/phong-trung-bay");
+  };
 
   return (
     <Content
       style={{
+        alignItems: "center",
         justifyItems: "center",
-        alignContent: "center"
+        alignContent: "center",
+        width: "100%",
+        margin: "0 auto",
+        maxWidth: "52rem"
       }}
     >
       <Row
         style={{
-          margin: "0 2rem",
-          maxWidth: "60rem",
-          justifyItems: "center",
-          alignContent: "center",
-          justifyContent: "center"
+          justifyContent: "center",
+          margin: "1rem 2rem"
         }}
       >
         <ContactButtons />
       </Row>
       <Row style={{
         justifyContent: "center",
-        margin: "1rem"
+        margin: "0 1rem"
       }}>
         {homePageItems.map((item, index) => {
           const key = `${item.title}-${index}`;
@@ -45,6 +51,19 @@ function TrangChu() {
             </Col>
           );
         })}
+        <Col span={24}
+             style={{
+               justifyItems: "center"
+             }}>
+          <PhotoAndText
+            imgSrc="carousel-1.jpg"
+            imgAlt="Phòng Trưng Bày"
+            headingText="Phòng Trưng Bày"
+            descriptionText="Nhấn vào đây để xem khu vườn."
+            onClick={onGalleryClick}
+            hoverable={true}
+          />
+        </Col>
       </Row>
     </Content>
   );
