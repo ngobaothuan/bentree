@@ -1,9 +1,11 @@
 import { Layout, Grid } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export function PageHeader() {
   const { Header } = Layout;
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
+  const navigate = useNavigate();
 
   return (
     <Header
@@ -21,8 +23,10 @@ export function PageHeader() {
       <div
         style={{
           height: screens.xs ? "8rem" : "12rem",
-          marginTop: "1rem"
+          marginTop: "1rem",
+          cursor: "pointer"
         }}
+        onClick={() => navigate("/")}
       >
         <img
           src="BentreeLogoVerticalColor.svg"

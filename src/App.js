@@ -1,5 +1,5 @@
 import "./App.css";
-import { ConfigProvider, Layout } from "antd";
+import { ConfigProvider, Layout, Menu } from "antd";
 import { green } from "@ant-design/colors";
 import { App as AntdApp } from "antd";
 import { PageHeader } from "./components/PageHeader";
@@ -8,9 +8,39 @@ import PhongTrungBay from "./pages/PhongTrungBay";
 import TrangChu from "./pages/TrangChu";
 import LienHe from "./pages/LienHe";
 import NotFound from "./pages/NotFound";
+import { Link, useLocation } from "react-router-dom";
+
+const items = [
+  {
+    label: <Link to="/">Trang Chủ</Link>,
+    key: "trangchu"
+  },
+  {
+    label: <Link to="/phong-trung-bay">Phòng Trưng Bày</Link>,
+    key: "phong-trung-bay"
+  },
+  {
+    label: <Link to="/lien-he">Liên Hệ</Link>,
+    key: "lien-he"
+  }
+];
 
 function App() {
-  const { Footer } = Layout;
+  const { Footer, Header } = Layout;
+  const location = useLocation();
+
+  const getSelectedKey = (pathname) => {
+    switch (pathname) {
+      case "/":
+        return "trangchu";
+      case "/phong-trung-bay":
+        return "phong-trung-bay";
+      case "/lien-he":
+        return "lien-he";
+      default:
+        return "";
+    }
+  };
 
   return (
     <AntdApp>
@@ -21,27 +51,60 @@ function App() {
           }
         }}
       >
-        <Layout
-          style={{
-            minHeight: "100vh"
-          }}
-        >
-          <Layout>
-            <PageHeader />
-            <Routes>
-              <Route index element={<TrangChu />} />
-              <Route path="/phong-trung-bay" element={<PhongTrungBay />} />
-              <Route path="/lien-he" element={<LienHe />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer
+        <Layout>
+          <Header
+            style={{
+              position: "sticky",
+              top: 0,
+              zIndex: 1,
+              width: "100%",
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+            <div style={
+              {
+                height: "2.5rem",
+                width: "auto",
+                paddingRight: "1rem",
+                display: "flex",
+                alignItems: "center"
+              }
+            }>
+              <img
+                src="BentreeLogoWhite.svg"
+                alt="Bentree logo"
+                style={{
+                  height: "100%",
+                  width: "auto"
+                }}
+              />
+            </div>
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              selectedKeys={[getSelectedKey(location.pathname)]}
+              items={items}
               style={{
-                textAlign: "center"
+                flex: 1,
+                minWidth: 0
               }}
-            >
-              Bentree ©{new Date().getFullYear()}
-            </Footer>
-          </Layout>
+            />
+          </Header>
+          <PageHeader />
+          <Routes>
+            <Route index element={<TrangChu />} />
+            <Route path="/phong-trung-bay" element={<PhongTrungBay />} />
+            <Route path="/lien-he" element={<LienHe />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer
+            style={{
+              textAlign: "center"
+            }}
+          >
+            Bentree ©{new Date().getFullYear()}
+          </Footer>
         </Layout>
       </ConfigProvider>
     </AntdApp>

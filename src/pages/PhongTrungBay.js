@@ -1,12 +1,15 @@
-import { Image, Layout, Grid, Card, Row, Col } from "antd";
+import { Image, Layout, Grid, Card, Row, Col, Button } from "antd";
 import { Typography } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 const { Content } = Layout;
 
 function PhongTrungBay() {
+
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
+  const navigate = useNavigate();
 
   const Images = [
     "IMG_1777.jpg",
