@@ -1,9 +1,10 @@
-import useWindowDimensions from "../hooks/useWindowDimensions";
-import { Typography, Layout } from "antd";
+import { Typography, Layout, Grid } from "antd";
 
 export function PageHeader() {
   const { Header } = Layout;
-  const { width } = useWindowDimensions();
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
+
   return (
     <Header
       style={{
@@ -14,12 +15,13 @@ export function PageHeader() {
         gridTemplateColumns: "1fr",
         alignContent: "center",
         width: "100%",
-        height: "auto",
+        height: "auto"
       }}
     >
       <div
         style={{
-          height: width < 540 ? "4rem" : "8rem",
+          height: screens.xs ? "8rem" : "12rem",
+          marginTop: "1rem"
         }}
       >
         <img
@@ -27,7 +29,7 @@ export function PageHeader() {
           alt="Bentree logo"
           style={{
             height: "100%",
-            width: "auto",
+            width: "auto"
           }}
         />
       </div>
@@ -35,7 +37,7 @@ export function PageHeader() {
         level={2}
         style={{
           textAlign: "center",
-          fontSize: width < 540 ? "1.2rem" : "1.8rem",
+          fontSize: screens.xs ? "1.2rem" : "1.8rem"
         }}
       >
         Vườn Tùng Vạn Niên lớn nhất Bến Tre - Chuyên Cung Cấp Sỉ Lẻ
