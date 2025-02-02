@@ -1,6 +1,7 @@
 import { Image, Layout, Grid, Card, Row, Col, Button } from "antd";
 import { Typography } from "antd";
 import { useNavigate } from "react-router-dom";
+import { ContactButtons } from "../components/ContactButtons";
 
 const { Title } = Typography;
 const { Content } = Layout;
@@ -34,8 +35,7 @@ function PhongTrungBay() {
         type={"secondary"}
         style={{
           textAlign: "center",
-          fontSize: screens.xs ? "1.2rem" : "1.8rem",
-          marginBottom: "2rem"
+          fontSize: screens.xs ? "1.2rem" : "1.8rem"
         }}
       >
         Phòng Trưng Bày
@@ -50,6 +50,14 @@ function PhongTrungBay() {
           maxWidth: "52rem"
         }}
       >
+        <Row
+          style={{
+            justifyContent: "center",
+            margin: "1rem 2rem"
+          }}
+        >
+          <ContactButtons />
+        </Row>
         <Card>
           <Row>
             {Images.map((img) => (
