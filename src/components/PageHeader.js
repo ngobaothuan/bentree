@@ -1,4 +1,4 @@
-import { Typography, Layout, Grid } from "antd";
+import { Layout, Grid } from "antd";
 
 export function PageHeader() {
   const { Header } = Layout;
@@ -33,15 +33,6 @@ export function PageHeader() {
           }}
         />
       </div>
-      <Typography.Title
-        level={2}
-        style={{
-          textAlign: "center",
-          fontSize: screens.xs ? "1.2rem" : "1.8rem"
-        }}
-      >
-        Vườn Tùng Vạn Niên lớn nhất Bến Tre - Chuyên Cung Cấp Sỉ Lẻ
-      </Typography.Title>
     </Header>
   );
 }
