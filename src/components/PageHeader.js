@@ -1,9 +1,12 @@
-import useWindowDimensions from "../hooks/useWindowDimensions";
-import { Typography, Layout } from "antd";
+import { Layout, Grid } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export function PageHeader() {
   const { Header } = Layout;
-  const { width } = useWindowDimensions();
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
+  const navigate = useNavigate();
+
   return (
     <Header
       style={{
@@ -14,32 +17,26 @@ export function PageHeader() {
         gridTemplateColumns: "1fr",
         alignContent: "center",
         width: "100%",
-        height: "auto",
+        height: "auto"
       }}
     >
       <div
         style={{
-          height: width < 540 ? "4rem" : "8rem",
+          height: screens.xs ? "8rem" : "12rem",
+          marginTop: "1rem",
+          cursor: "pointer"
         }}
+        onClick={() => navigate("/")}
       >
         <img
           src="BentreeLogoVerticalColor.svg"
           alt="Bentree logo"
           style={{
             height: "100%",
-            width: "auto",
+            width: "auto"
           }}
         />
       </div>
-      <Typography.Title
-        level={2}
-        style={{
-          textAlign: "center",
-          fontSize: width < 540 ? "1.2rem" : "1.8rem",
-        }}
-      >
-        Vườn Tùng Vạn Niên lớn nhất Bến Tre - Chuyên Cung Cấp Sỉ Lẻ
-      </Typography.Title>
     </Header>
   );
 }

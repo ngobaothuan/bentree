@@ -1,66 +1,110 @@
 import "./App.css";
-// import BackgroundImage from "./components/BackgroundImage";
-import { ConfigProvider, Layout } from "antd";
+import { ConfigProvider, Layout, Menu } from "antd";
 import { green } from "@ant-design/colors";
 import { App as AntdApp } from "antd";
-import { CarouselHome } from "./components/CarouselHome";
 import { PageHeader } from "./components/PageHeader";
-import { CallNowButton } from "./components/CallNowButton";
-import homePageItems from "./data/homePageItems.json";
-import { Library } from "./components/Library";
-import HomePageItem from "./components/HomePageItem";
+import { Route, Routes } from "react-router-dom";
+import PhongTrungBay from "./pages/PhongTrungBay";
+import TrangChu from "./pages/TrangChu";
+import LienHe from "./pages/LienHe";
+import NotFound from "./pages/NotFound";
+import { Link, useLocation } from "react-router-dom";
+
+const items = [
+  {
+    label: <Link to="/">Trang Chủ</Link>,
+    key: "trangchu"
+  },
+  {
+    label: <Link to="/phong-trung-bay">Phòng Trưng Bày</Link>,
+    key: "phong-trung-bay"
+  },
+  {
+    label: <Link to="/lien-he">Liên Hệ</Link>,
+    key: "lien-he"
+  }
+];
 
 function App() {
-  const { Content, Footer } = Layout;
+  const { Footer, Header } = Layout;
+  const location = useLocation();
+
+  const getSelectedKey = (pathname) => {
+    switch (pathname) {
+      case "/":
+        return "trangchu";
+      case "/phong-trung-bay":
+        return "phong-trung-bay";
+      case "/lien-he":
+        return "lien-he";
+      default:
+        return "";
+    }
+  };
 
   return (
     <AntdApp>
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: green.primary,
-          },
+            colorPrimary: green.primary
+          }
         }}
       >
-        <Layout
-          style={{
-            minHeight: "100vh",
-          }}
-        >
-          <Layout>
-            <PageHeader />
-            <CarouselHome />
-            <CallNowButton />
-            <Content
+        <Layout>
+          <Header
+            style={{
+              position: "sticky",
+              top: 0,
+              zIndex: 1,
+              width: "100%",
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+            <div style={
+              {
+                height: "2.5rem",
+                width: "auto",
+                paddingRight: "1rem",
+                display: "flex",
+                alignItems: "center"
+              }
+            }>
+              <img
+                src="BentreeLogoWhite.svg"
+                alt="Bentree logo"
+                style={{
+                  height: "100%",
+                  width: "auto"
+                }}
+              />
+            </div>
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              selectedKeys={[getSelectedKey(location.pathname)]}
+              items={items}
               style={{
-                margin: "0 1rem",
-                justifyContent: "center",
-                justifyItems: "center",
-                width: "100%",
-                display: "grid",
-                gridTemplateColumns: "1fr",
+                flex: 1,
+                minWidth: 0
               }}
-            >
-              {homePageItems.map((item, index) => (
-                <HomePageItem
-                  key={`${item.title}-${index}`}
-                  imgSrc={item.imgSrc}
-                  imgAlt={item.imgAlt}
-                  headingText={item.title}
-                  descriptionText={item.description}
-                  imgPlacement={index % 2 === 0 ? "left" : "right"}
-                />
-              ))}
-            </Content>
-            <Library />
-            <Footer
-              style={{
-                textAlign: "center",
-              }}
-            >
-              Bentree ©{new Date().getFullYear()}
-            </Footer>
-          </Layout>
+            />
+          </Header>
+          <PageHeader />
+          <Routes>
+            <Route index element={<TrangChu />} />
+            <Route path="/phong-trung-bay" element={<PhongTrungBay />} />
+            <Route path="/lien-he" element={<LienHe />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer
+            style={{
+              textAlign: "center"
+            }}
+          >
+            Bentree ©{new Date().getFullYear()}
+          </Footer>
         </Layout>
       </ConfigProvider>
     </AntdApp>
