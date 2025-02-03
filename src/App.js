@@ -46,12 +46,20 @@ function App() {
     <AntdApp>
       <ConfigProvider
         theme={{
+          components: {
+            Layout: {
+              headerBg: "#FFFFFF"
+            }
+          },
           token: {
             colorPrimary: green.primary
           }
-        }}
+        }
+        }
       >
-        <Layout>
+        <Layout
+
+        >
           <Header
             style={{
               position: "sticky",
@@ -72,7 +80,7 @@ function App() {
               }
             }>
               <img
-                src="BentreeLogoWhite.svg"
+                src="BentreeLogo.svg"
                 alt="Bentree logo"
                 style={{
                   height: "100%",
@@ -81,7 +89,7 @@ function App() {
               />
             </div>
             <Menu
-              theme="dark"
+              theme="light"
               mode="horizontal"
               selectedKeys={[getSelectedKey(location.pathname)]}
               items={items}
