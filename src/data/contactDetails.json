@@ -1,0 +1,15 @@
+{
+  "phoneNumber": "0916 925 019",
+  "email": "placeholder@email.com",
+  "address": {
+    "street": "13C/1",
+    "town": "Thị trấn Châu Thành",
+    "district": "Huyện Châu Thành",
+    "province": "Tỉnh Bến Tre",
+    "country": "Việt Nam"
+  },
+  "googleMapsURL": {
+    "externalLink": "https://maps.app.goo.gl/JP79ELkpuhSQpfmW9",
+    "embedLink": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1063.1662048823055!2d106.357521!3d10.2988589!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aaf5adabb84ed%3A0xb8e2f1a95ba955ac!2zNzlYNCtGWEMsIFFMNjAsIFBow7ogQW4gSG_DoCwgQ2jDonUgVGjDoG5oLCBC4bq_biBUcmUsIFZpZXRuYW0!5e1!3m2!1sen!2suk!4v1738599294710!5m2!1sen!2suk"
+  }
+}

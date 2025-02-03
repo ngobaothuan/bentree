@@ -1,4 +1,4 @@
-import { Image, Layout, Grid, Card, Row, Col, Button } from "antd";
+import { Image, Layout, Grid, Card, Row, Col } from "antd";
 import { Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ContactButtons } from "../components/ContactButtons";
